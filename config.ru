@@ -1,2 +1,2 @@
 require './yield_service'
-run Sinatra::Application
+run YieldService
