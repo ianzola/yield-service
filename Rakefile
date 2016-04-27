@@ -9,7 +9,7 @@ namespace :db do
     require './config/environment'
     ActiveRecord::Migrator.migrate('db/migrate')
 
-    Schedule.create({ mday: 1, mday_max: 8, wday: 3, description: "Breakfast Meeting", img_name: "breakfast.jpg" })
-    Schedule.create({ mday: 15, description: "Haircut appointment", img_name: "haircut.jpg" })
+    Schedule.create({ mday: 1, mday_max: 8, wday: 3, description: "Haircut appointment", img_name: "haircut.jpg" })
+    Schedule.create({ mday: 15, description: "Breakfast Meeting", img_name: "breakfast.jpg" })
   end
 end
