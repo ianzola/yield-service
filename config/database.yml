@@ -1,2 +1,4 @@
-adapter: sqlite3
-database: db/yield
+adapter: postgresql
+database: yield
+pool: 5
+timeout: 5000
