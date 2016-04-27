@@ -7,8 +7,33 @@
 	</head>
 	<body>
 		<div class="container">
-      <%= @next_event %>
-	  </div>
+      <nav class="navbar" role="navigation"></nav>
+
+      <form class="form-inline" action="/events">
+        <div class="form-group">
+          <label class="sr-only" for="exampleInputAmount">Date</label>
+          <div class="input-group">
+            <input type="text" class="form-control" name="my_date" id="exampleInputAmount" placeholder="01-03-2015">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">When is my next event?</button>
+      </form>
+
+      <% if @next_event %>
+        <div class="media">
+          <div class="media-left">
+            <a href="#">
+              <img class="media-object" src="images/<%= @event.try(:img_name) %>" width="150" length="50">
+            </a>
+          </div>
+          <div class="media-body">
+            <h4 class="media-body">You have a <%= @event.try(:description) %> on <%= @next_event %></h4>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+
 
     <script src="/javascripts/jquery-1.9.1.min.js"></script>
     <script src="/stylesheets/bootstrap.min.js"></script>

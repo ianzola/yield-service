@@ -2,12 +2,12 @@ require 'date'
 
 class Cron
   $schedule = [
-      { mday: 1, mday_max: 8, wday: 3 },
-      { mday: 15 }
+      { mday: 1, mday_max: 8, wday: 3, description: "B" },
+      { mday: 15, description: "a" }
   ]
 
-  def next_event(start_date)
-      upcoming_dates = $schedule.map do |schedule_entry|
+  def next_event(start_date, schedule)
+      upcoming_dates = schedule.map do |schedule_entry|
           date = start_date
           loop do
               if (! matches_scheduled_mday(date, schedule_entry))
@@ -21,10 +21,10 @@ class Cron
               end
               break
           end
-          date
+          [date, schedule_entry]
       end
 
-      upcoming_dates.min
+      upcoming_dates.min_by{|a| a[0]}
   end
 
   def matches_scheduled_mday(date, schedule_entry)
@@ -70,8 +70,8 @@ end
 # ---------- testing code follows -------------
 
 #def expectation(e, a)
-#    if e != a
-#        throw "mismatch: " + e.to_s + " != " + a.to_s
+#    if e != a[0]
+#        throw "mismatch: " + e.to_s + " != " + a[0].to_s
 #    else
 #        puts "success"
 #    end
