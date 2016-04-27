@@ -6,5 +6,7 @@ Example is in a free Heroku tier, so expect some slow loading when loading the p
 
 #Datbase
 
-|description|wday|mday_max|mday|
-|Haircut    | 15 |        |    |
+|description|mday|mday_max|wday|  
+---------------------------------
+|Haircut app| 15 |         
+---------------------------------
