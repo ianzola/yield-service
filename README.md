@@ -1,3 +1,5 @@
 # yield-service
 
-[Heroku Example](https://yield-service.herokuapp.com/) 
+Example is in a free Heroku tier, so expect some slow loading when loading the page the first time
+
+[Click here to open Heroku example](https://yield-service.herokuapp.com/)

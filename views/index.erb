@@ -13,7 +13,7 @@
         <div class="form-group">
           <label class="sr-only" for="exampleInputAmount">Date</label>
           <div class="input-group">
-            <input type="text" class="form-control" name="my_date" id="exampleInputAmount" placeholder="01-03-2015">
+            <input type="text" class="form-control" name="my_date" id="exampleInputAmount" placeholder="DD-MM-YYYY">
           </div>
         </div>
         <button type="submit" class="btn btn-primary">When is my next event?</button>
@@ -31,6 +31,10 @@
           </div>
         </div>
       <% end %>
+
+			<% if @error %>
+				<div class="alert alert-warning" style="margin-top:50px"><h4><%= @error %></h4></div>
+			<% end %>
 
     </div>
 

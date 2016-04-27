@@ -17,9 +17,14 @@ class YieldService < Sinatra::Base
   get '/events' do
     cron = Cron.new
     schedules = Schedule.all.to_a
-    n, event = cron.next_event(Date.parse(params[:my_date]), schedules)
-    @next_event = n.strftime('%d %B %Y')
-    @event = event
+    begin
+      valid_date = Date.parse(params[:my_date])
+      n, event = cron.next_event(valid_date, schedules)
+      @next_event = n.strftime('%d %B %Y')
+      @event = event
+    rescue
+      @error = "Please enter a valid date in the format: DD-MM-YYYY"
+    end
     erb :index
   end
 end
