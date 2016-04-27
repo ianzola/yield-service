@@ -3,9 +3,10 @@ require 'time'
 require './src/cron'
 require './lib/schedules'
 require 'yaml'
+require './config/environment'
 
-db_options = YAML.load(File.read('./config/database.yml'))
-ActiveRecord::Base.establish_connection(db_options)
+#db_options = YAML.load(File.read('./config/database.yml'))
+#ActiveRecord::Base.establish_connection(db_options)
 
 class YieldService < Sinatra::Base
 
